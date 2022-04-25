@@ -18,3 +18,7 @@ sudo apt-get install azure-cli -y
 echo "Install kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo mv ./kubectl /usr/bin/kubectl
+sudo chmod +x /usr/bin/kubectl
+
+sudo apt install mc -y
+
