@@ -1,2 +1,2 @@
 echo "Applying Configuration"
-touch :"ovidiu" /tmp/ovidiu
+echo"ovidiu" > /tmp/ovidiu
