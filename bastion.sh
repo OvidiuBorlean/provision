@@ -1,4 +1,4 @@
 
 #!/bin/bash
 echo "Applying Configuration"
-echo"ovidiu" > /tmp/ovidiu
+echo "ovidiu" > /tmp/ovidiu
