@@ -167,7 +167,7 @@ resource "azurerm_linux_virtual_machine" "bastion" {
         host = self.public_ip_address
         user = "azureuser"
         type = "ssh"
-        password = "LAwpq7rstyo2ovi"
+        password = ""
         timeout = "4m"
         agent = false
   }
