@@ -1,0 +1,38 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+availabilityZones:
+  - "eu-central-1a"
+  - "eu-central-1b"
+  - "eu-central-1c"
+metadata:
+  name: "ekatoss"
+  region: "eu-central-1"
+  version: "1.30"
+  tags:
+    karpenter.sh/discovery: "eksatoss"
+    created-by: Ovidiu
+    env: "eksatoss"
+iam:
+  withOIDC: true
+vpc:
+  cidr: 10.42.0.0/16
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: true
+addons:
+  - name: vpc-cni
+    version: 1.16.0
+    configurationValues: '{"env":{"ENABLE_PREFIX_DELEGATION":"true", "ENABLE_POD_ENI":"true", "POD_SECURITY_GROUP_ENFORCING_MODE":"standard"},"enableNetworkPolicy": "true"}'
+    resolveConflicts: overwrite
+managedNodeGroups:
+  - name: default
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 2
+    instanceType: t2.medium
+    privateNetworking: true
+    releaseVersion: "1.30.0-20240625"
+    updateConfig:
+      maxUnavailablePercentage: 50
+    labels:
+      workshop-default: "yes"
