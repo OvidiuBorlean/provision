@@ -1,5 +1,10 @@
 #!/bin/bash
 
+install_k3s () {
+  echo "Installing k3s Kubernetes"
+  
+}
+
 install_azure_cli () {
    AZ_DIST=$(lsb_release -cs)
    AZ_VER="2.64.0"
